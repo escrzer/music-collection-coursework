@@ -24,7 +24,14 @@ class Playlist:
         self.tracks = [t for t in self.tracks if t.title != title]
 
     def find_by_artist(self, artist_name: str) -> List[Track]:
-        """Поиск треков по исполнителю."""
+        """
+        Поиск треков по исполнителю.
+
+         :param artist_name: имя исполнителя
+        :type artist_name: str
+        :return: список треков данного исполнителя
+        :rtype: List[Track]
+        """
         return [t for t in self.tracks if t.artist == artist_name]
 
     def shuffle(self) -> None:
@@ -32,7 +39,12 @@ class Playlist:
         random.shuffle(self.tracks)
 
     def __str__(self) -> str:
-        """Строковое представление плейлиста."""
+        """
+        Строковое представление плейлиста.
+
+        :return: многострочная строка со списком треков
+        :rtype: str
+        """
         if not self.tracks:
             return f"Плейлист: {self.name}\n(пока нет треков)"
 
@@ -40,3 +52,6 @@ class Playlist:
         for i, track in enumerate(self.tracks, start=1):
             lines.append(f"{i}. {track}")
         return "\n".join(lines)
+
+if __name__ == "__main__":
+    ...
